@@ -51,3 +51,7 @@ allOpen {
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+/*
+aguardar lançamento das migrations
+* */
