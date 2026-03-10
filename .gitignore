@@ -1,5 +1,8 @@
 HELP.md
 .gradle
+.idea
+.github
+.kotlin
 build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
