@@ -1,3 +1,6 @@
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+
 plugins {
     id 'org.jetbrains.kotlin.jvm' version '2.2.21'
     id 'org.jetbrains.kotlin.plugin.spring' version '2.2.21'
@@ -28,6 +31,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.jetbrains.kotlin:kotlin-reflect'
     implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.flywaydb:flyway-database-postgresql")
     runtimeOnly 'org.postgresql:postgresql'
     testImplementation 'org.springframework.boot:spring-boot-starter-data-jpa-test'
     testImplementation 'org.jetbrains.kotlin:kotlin-test-junit5'
@@ -53,5 +57,198 @@ tasks.named('test') {
 }
 
 /*
-aguardar lançamento das migrations
-* */
+===========================================================
+TASK GRADLE: createMigration
+===========================================================
+
+Objetivo:
+Automatizar a criação de migrations SQL para o Flyway.
+
+Nome gerado:
+V{contador}__{timestamp}_{descricao}.sql
+
+Exemplo:
+V1__20260310_1730_create_usuario_table.sql
+
+Como executar no terminal:
+
+Linux / Mac:
+    ./gradlew createMigration -Pdesc=create_usuario_table
+
+Windows:
+    gradlew.bat createMigration -Pdesc=create_usuario_table
+
+Parâmetro obrigatório:
+    -Pdesc=descricao_da_migration
+
+Exemplo real:
+    ./gradlew createMigration -Pdesc=create_evento_table
+
+Pasta onde os arquivos serão criados:
+src/main/resources/db/migration
+
+/*
+Registramos uma nova task no Gradle chamada:
+
+createMigration
+
+Ela poderá ser executada via terminal usando:
+
+./gradlew createMigration
+*/
+tasks.register("createMigration") {
+
+    /*
+    Agrupamento da task.
+
+    Isso faz ela aparecer organizada quando rodamos:
+
+    ./gradlew tasks
+    */
+    group = "database"
+
+    /*
+    Descrição exibida na listagem de tasks do Gradle
+    */
+    description = "Cria um arquivo de migration Flyway automaticamente"
+
+    /*
+    Bloco que contém o código que será executado
+    quando a task rodar.
+
+    Gradle possui dois tipos principais:
+    doFirst  → executa antes
+    doLast   → executa por último
+
+    Como temos apenas uma ação, usamos doLast.
+    */
+    doLast {
+
+        /*
+        Define o diretório onde as migrations ficam.
+
+        Estrutura esperada pelo Flyway:
+
+        src/main/resources/db/migration
+        */
+        def migrationDir = file("src/main/resources/db/migration")
+
+
+        /*
+        Caso o diretório não exista, ele será criado.
+        */
+        if (!migrationDir.exists()) {
+            migrationDir.mkdirs()
+        }
+
+        /*
+        Lista todos os arquivos existentes na pasta.
+        */
+        def migrations = migrationDir.listFiles()?.findAll {
+            it.name.startsWith("V")
+        } ?: []
+
+        /*
+        Extrai os números de versão das migrations existentes.
+
+        Exemplo de arquivo:
+        V12__20260310_create_table.sql
+
+        Regex utilizada:
+        ^V(\d+)__
+
+        Captura apenas o número após o "V".
+        */
+        def versions = migrations.collect { file ->
+
+            def matcher = file.name =~ /^V(\d+)__.*/
+
+            matcher ? matcher[0][1].toInteger() : 0
+        }
+
+        /*
+        Define o próximo número da migration.
+
+        Se já existirem migrations:
+            pega a maior versão + 1
+
+        Se não existir nenhuma:
+            começa em 1
+        */
+        def nextVersion = versions ? versions.max() + 1 : 1
+
+        /*
+        Gera timestamp atual no formato:
+
+        yyyyMMdd_HHmm
+
+        Exemplo:
+        20260310_1745
+        */
+        def timestamp = LocalDateTime.now()
+                .format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmm"))
+
+        /*
+        Lê o parâmetro passado na execução da task.
+
+        Exemplo:
+        ./gradlew createMigration -Pdesc=create_usuario_table
+
+        Caso o parâmetro não seja informado,
+        será usado "new_migration".
+        */
+        def description = project.findProperty("desc") ?: "new_migration"
+
+        /*
+        Normaliza o texto da descrição:
+
+        - substitui espaços por "_"
+        - transforma em lowercase
+        */
+        description = description.replace(" ", "_").toLowerCase()
+
+        /*
+        Monta o nome final da migration.
+
+        Formato:
+        V{contador}__{timestamp}_{descricao}.sql
+
+        Exemplo final:
+        V3__20260310_1745_create_usuario_table.sql
+        */
+        def fileName = "V${nextVersion}__${timestamp}_${description}.sql"
+
+        /*
+        Cria o objeto File apontando para o caminho final.
+        */
+        def migrationFile = new File(migrationDir, fileName)
+
+
+        /*
+        Conteúdo inicial do arquivo SQL.
+
+        Serve como documentação dentro da própria migration.
+        */
+        def header = """\
+-- Flyway Migration
+-- Version: ${nextVersion}
+-- Timestamp: ${timestamp}
+-- Description: ${description}
+-- Created at: ${LocalDateTime.now()}
+
+-- Write your SQL below
+
+"""
+
+        /*
+        Escreve o conteúdo no arquivo.
+        */
+        migrationFile.write(header)
+
+        /*
+        Exibe no terminal o caminho do arquivo criado.
+        */
+        println "Migration criada com sucesso:"
+        println migrationFile.absolutePath
+    }
+}
