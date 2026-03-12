@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
 import java.util.UUID
 
+//teste
 abstract class BaseController<T : BaseEntity, S : IBaseService<T>>(protected val service: S) {
 
     @GetMapping
