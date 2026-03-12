@@ -1,0 +1,11 @@
+review_code:
+  stage: test
+  image: python:3.11-slim
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: manual  # <-- Isso cria o botão e impede a execução automática
+  allow_failure: true # Opcional: evita que o MR fique "travado" esperando o botão
+  before_script:
+    - pip install anthropic requests
+  script:
+    - python scripts/claude_review.py
