@@ -18,5 +18,6 @@ class UsuarioEntity(
     var senha: String,
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "tipo_usuario")
     var tipoUsuario: TipoUsuario
 ) : BaseEntity()
