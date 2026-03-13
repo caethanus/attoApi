@@ -5,6 +5,4 @@ import org.springframework.data.repository.NoRepositoryBean
 import java.util.UUID
 
 @NoRepositoryBean
-interface BaseRepository<T : BaseEntity> : JpaRepository<T, UUID> {
-    fun deleteSoft(entity: T);
-}
+interface BaseRepository<T : BaseEntity> : JpaRepository<T, UUID>

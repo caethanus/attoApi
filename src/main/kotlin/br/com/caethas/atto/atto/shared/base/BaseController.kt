@@ -1,5 +1,5 @@
-import br.com.caethas.atto.atto.shared.base.BaseEntity
-import br.com.caethas.atto.atto.shared.base.BaseService
+package br.com.caethas.atto.atto.shared.base
+
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
