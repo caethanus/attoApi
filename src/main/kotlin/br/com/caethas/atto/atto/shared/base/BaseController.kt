@@ -1,6 +1,5 @@
 package br.com.caethas.atto.atto.shared.base
 
-import br.com.caethas.atto.atto.shared.base.`interface`.IBaseService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
@@ -10,23 +9,23 @@ import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
 import java.util.UUID
 
-abstract class BaseController<T : BaseEntity, S : IBaseService<T>>(protected val service: S) {
+abstract class BaseController<T : BaseEntity>(
+    protected val service: BaseService<T, *>
+) {
 
     @GetMapping
-    fun findAll(): List<T> = service.findAll()
+    fun findAll(): ResponseEntity<List<T>> =
+        ResponseEntity.ok(service.findAll())
 
     @GetMapping("/{id}")
-    fun findById(@PathVariable id: UUID): ResponseEntity<T> {
-        val entity = try {
-            service.findById(id)
-        } catch (e: RuntimeException) {
-            return ResponseEntity.notFound().build()
-        }
-        return ResponseEntity.ok(entity)
-    }
+    fun findById(@PathVariable id: UUID): ResponseEntity<T> =
+        runCatching { service.findById(id) }
+            .map { ResponseEntity.ok(it) }
+            .getOrElse { ResponseEntity.notFound().build() }
 
     @PostMapping
-    fun save(@RequestBody entity: T): ResponseEntity<T> = ResponseEntity.status(201).body(service.upsert(entity))
+    fun save(@RequestBody entity: T): ResponseEntity<T> =
+        ResponseEntity.status(201).body(service.upsert(entity))
 
     @PutMapping("/{id}")
     fun update(@PathVariable id: UUID, @RequestBody entity: T): ResponseEntity<T> {
@@ -35,12 +34,11 @@ abstract class BaseController<T : BaseEntity, S : IBaseService<T>>(protected val
     }
 
     @DeleteMapping("/{id}")
-    fun delete(@PathVariable id: UUID): ResponseEntity<Unit> {
-        return try {
+    fun delete(@PathVariable id: UUID): ResponseEntity<Unit> =
+        runCatching {
             service.deleteSoft(id)
-            ResponseEntity.noContent().build()
-        } catch (e: RuntimeException) {
-            ResponseEntity.notFound().build()
-        }
-    }
+        }.fold(
+            onSuccess = { ResponseEntity.noContent().build() },
+            onFailure = { ResponseEntity.notFound().build() }
+        )
 }
