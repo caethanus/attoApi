@@ -4,14 +4,14 @@
 -- Description: create_test_usuario
 -- Created at: 2026-03-12T21:05:39.178148400
 
-CREATE TABLE usuario
+CREATE TABLE usuarios
 (
     id              UUID PRIMARY KEY,
     criado_em       TIMESTAMP NOT NULL,
     atualizado_em   TIMESTAMP,
     deletado_em     TIMESTAMP,
     sincronizado_em TIMESTAMP,
-    login           VARCHAR(50) NOT NULL,
-    senha           VARCHAR(50) NOT NULL,
-    tipo_usuario    VARCHAR(50) NOT NULL
+    login           TEXT NOT NULL,
+    senha           TEXT NOT NULL,
+    tipo_usuario    TEXT NOT NULL
 );

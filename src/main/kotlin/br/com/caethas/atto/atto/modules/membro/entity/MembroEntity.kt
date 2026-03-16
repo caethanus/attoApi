@@ -14,7 +14,7 @@ import jakarta.persistence.Table
 import org.hibernate.sql.results.graph.Fetch
 
 @Entity
-@Table(name = "membro")
+@Table(name = "membros")
 class MembroEntity(
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "usuario_id")
@@ -26,8 +26,8 @@ class MembroEntity(
     @Column(name = "email_membro")
     var emailMembro: String,
 
-    @Column(name = "telefone_membro")
-    var telefoneMembro: String,
+    @Column(name = "contato_membro")
+    var contatoMembro: String,
 
     @Column(name = "endereco_membro")
     var enderecoMembro: String,
