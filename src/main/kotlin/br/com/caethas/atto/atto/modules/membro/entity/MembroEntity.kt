@@ -15,7 +15,7 @@ import org.hibernate.sql.results.graph.Fetch
 
 @Entity
 @Table(name = "membros")
-class MembroEntity(
+data class MembroEntity(
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "usuario_id")
     var usuario: UsuarioEntity,
@@ -24,13 +24,13 @@ class MembroEntity(
     var nomeMembro: String,
 
     @Column(name = "email_membro")
-    var emailMembro: String,
+    var emailMembro: String?,
 
     @Column(name = "contato_membro")
-    var contatoMembro: String,
+    var contatoMembro: String?,
 
     @Column(name = "endereco_membro")
-    var enderecoMembro: String,
+    var enderecoMembro: String?,
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status_associado")
