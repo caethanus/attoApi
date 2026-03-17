@@ -1,0 +1,17 @@
+package br.com.caethas.atto.atto.modules.diretoria.submodules.cargo.entity
+
+import br.com.caethas.atto.atto.shared.base.BaseEntity
+import jakarta.persistence.Column
+import jakarta.persistence.Entity
+import jakarta.persistence.Table
+
+@Entity
+@Table(name = "cargos")
+data class CargoEntity(
+    @Column(name = "titulo_cargo")
+    var tituloCargo: String,
+
+    @Column(name = "descricao_cargo")
+    var descricaoCargo: String?
+    
+) : BaseEntity()
