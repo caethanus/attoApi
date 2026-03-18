@@ -11,7 +11,7 @@ data class CargoEntity(
     @Column(name = "titulo_cargo", nullable = false, updatable = true)
     var tituloCargo: String,
 
-    @Column(name = "descricao_cargo", nullable = false, updatable = true)
+    @Column(name = "descricao_cargo", nullable = true, updatable = true)
     var descricaoCargo: String?
     
 ) : BaseEntity()

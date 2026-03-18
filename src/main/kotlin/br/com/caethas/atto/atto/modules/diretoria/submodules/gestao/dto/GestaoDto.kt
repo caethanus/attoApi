@@ -10,7 +10,6 @@ data class GestaoFromDto(
     val dataFinalGestao: LocalDateTime?,
     val presidenteGestaoId: UUID,
     val membrosGestao: MutableList<ParticipacaoGestaoEntity>,
-    val diretoriaGestaoId: UUID
 ) : BaseDto.FromDto()
 
 data class GestaoToDto(
@@ -21,9 +20,7 @@ data class GestaoToDto(
     override val sincronizadoEm: LocalDateTime?,
     val dataInicioGestao: LocalDateTime,
     val dataFinalGestao: LocalDateTime?,
-    val presidenteGestaoId: UUID,
     val membrosGestao: MutableList<ParticipacaoGestaoEntity>,
-    val diretoriaGestaoId: UUID
 ) : BaseDto.ToDto(
     id,
     criadoEm,

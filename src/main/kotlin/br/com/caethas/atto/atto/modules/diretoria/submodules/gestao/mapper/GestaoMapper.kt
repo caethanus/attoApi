@@ -11,15 +11,12 @@ import java.util.UUID
 
 class GestaoMapper(
     private val participacaoGestaoRepository: ParticipacaoGestaoRepository,
-    private val diretoriaRepository: DiretoriaRepository
 ) : BaseMapper<GestaoEntity, GestaoFromDto, GestaoToDto>() {
     override fun fromDto(request: GestaoFromDto): GestaoEntity {
         return GestaoEntity(
             dataInicioGestao = request.dataInicioGestao,
             dataFinalGestao = request.dataFinalGestao,
-            presidenteGestao = participacaoGestaoRepository.findById(request.presidenteGestaoId).orElseThrow(),
             membrosGestao = request.membrosGestao,
-            diretoriaGestao = diretoriaRepository.findById(request.diretoriaGestaoId).orElseThrow()
         )
     }
 
@@ -32,9 +29,7 @@ class GestaoMapper(
             sincronizadoEm = entity.sincronizadoEm,
             dataInicioGestao = entity.dataInicioGestao,
             dataFinalGestao = entity.dataFinalGestao,
-            presidenteGestaoId = entity.presidenteGestao.id ?: UUID.randomUUID(),
             membrosGestao = entity.membrosGestao,
-            diretoriaGestaoId = entity.diretoriaGestao.id ?: UUID.randomUUID()
         )
     }
 

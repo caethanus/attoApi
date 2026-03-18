@@ -21,10 +21,6 @@ data class GestaoEntity(
     @Column(name = "data_final_gestao", nullable = true, updatable = true)
     var dataFinalGestao: LocalDateTime?,
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "gestao_presidente_gestao_id", nullable = false, updatable = true)
-    var presidenteGestao: ParticipacaoGestaoEntity,
-
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "gestao_membros_gestao_id", nullable = false, updatable = true)
     var membrosGestao: MutableList<ParticipacaoGestaoEntity> = mutableListOf()

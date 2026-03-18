@@ -17,7 +17,7 @@ import org.hibernate.sql.results.graph.Fetch
 @Table(name = "membros")
 data class MembroEntity(
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "membro_id", nullable = false)
+    @JoinColumn(name = "membro_usuario_id", nullable = false)
     var usuario: UsuarioEntity,
 
     @Column(name = "nome_membro", nullable = false, updatable = true)
