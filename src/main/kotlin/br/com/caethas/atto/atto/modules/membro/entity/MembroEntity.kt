@@ -11,7 +11,6 @@ import jakarta.persistence.FetchType
 import jakarta.persistence.JoinColumn
 import jakarta.persistence.OneToOne
 import jakarta.persistence.Table
-import org.hibernate.sql.results.graph.Fetch
 
 @Entity
 @Table(name = "membros")
@@ -24,13 +23,13 @@ class MembroEntity(
     var nomeMembro: String,
 
     @Column(name = "email_membro")
-    var emailMembro: String,
+    var emailMembro: String?,
 
     @Column(name = "contato_membro")
-    var contatoMembro: String,
+    var contatoMembro: String?,
 
     @Column(name = "endereco_membro")
-    var enderecoMembro: String,
+    var enderecoMembro: String?,
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status_associado")
