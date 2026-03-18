@@ -14,7 +14,7 @@ import jakarta.persistence.Table
 
 @Entity
 @Table(name = "membros")
-class MembroEntity(
+data class MembroEntity(
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "usuario_id")
     var usuario: UsuarioEntity,
