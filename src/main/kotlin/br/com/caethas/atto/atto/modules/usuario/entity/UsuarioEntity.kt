@@ -9,7 +9,7 @@ import jakarta.persistence.Enumerated
 import jakarta.persistence.Table
 
 @Entity
-@Table(name = "usuario")
+@Table(name = "usuarios")
 class UsuarioEntity(
     @Column(name = "login")
     var login: String,
