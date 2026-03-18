@@ -8,10 +8,10 @@ import jakarta.persistence.Table
 @Entity
 @Table(name = "cargos")
 data class CargoEntity(
-    @Column(name = "titulo_cargo")
+    @Column(name = "titulo_cargo", nullable = false, updatable = true)
     var tituloCargo: String,
 
-    @Column(name = "descricao_cargo")
+    @Column(name = "descricao_cargo", nullable = false, updatable = true)
     var descricaoCargo: String?
     
 ) : BaseEntity()
