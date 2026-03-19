@@ -15,7 +15,7 @@ import java.time.LocalDateTime
 
 @Entity
 @Table(name = "participacoes_gestao")
-data class ParticipacaoGestaoEntity(
+class ParticipacaoGestaoEntity(
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "membro_id", nullable = true, updatable = true)
     var membro: MembroEntity,

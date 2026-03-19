@@ -16,7 +16,7 @@ import java.time.LocalDateTime
 
 @Entity
 @Table(name = "eventos")
-data class EventoEntity(
+class EventoEntity(
     @Column(name = "titulo_evento", nullable = false, updatable = true)
     var tituloEvento: String,
 

@@ -13,7 +13,7 @@ import jakarta.persistence.Table
 
 @Entity
 @Table(name = "registros_presencas")
-data class RegistroPresencaEntity(
+class RegistroPresencaEntity(
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "membro_id", nullable = true, updatable = true)

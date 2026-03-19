@@ -11,7 +11,7 @@ import java.time.LocalDateTime
 
 @Entity
 @Table(name = "listas_presenca")
-data class ListaPresencaEntity(
+class ListaPresencaEntity(
 
     @Column(name = "data_lista_presenca", nullable = false)
     var dataListaPresenca: LocalDateTime,
