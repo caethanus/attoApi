@@ -7,7 +7,7 @@ import br.com.caethas.atto.atto.shared.base.BaseDto
 import java.time.LocalDateTime
 import java.util.UUID
 
-class MembroFromDto(
+data class MembroFromDto(
     val usuarioId: UUID,
     val nomeMembro: String,
     val emailMembro: String?,
@@ -28,8 +28,6 @@ data class MembroToDto(
     val enderecoMembro: String?,
     val statusAssociado: String,
     val usuario: UsuarioToDto
-
-
 ) : BaseDto.ToDto(id, criadoEm, atualizadoEm, deletadoEm, sincronizadoEm) {
 
 }

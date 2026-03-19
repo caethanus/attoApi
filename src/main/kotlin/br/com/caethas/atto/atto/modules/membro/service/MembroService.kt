@@ -10,5 +10,4 @@ import org.springframework.stereotype.Service
 
 @Service
 class MembroService(override val repository: MembroRepository, override val mapper: MembroMapper) :
-    BaseService<MembroEntity, MembroRepository, MembroFromDto, MembroToDto>(repository, mapper) {
-}
+    BaseService<MembroEntity, MembroRepository, MembroFromDto, MembroToDto>(repository, mapper)
