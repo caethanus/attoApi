@@ -15,7 +15,7 @@ CREATE TABLE membros
     email_membro     TEXT,
     contato_membro   TEXT,
     endereco_membro  TEXT,
-    status_associado TEXT,
+    status_associado TEXT NOT NULL,
     usuario_id       UUID      NOT NULL UNIQUE,
     CONSTRAINT membros_usuarios FOREIGN KEY (usuario_id) REFERENCES usuarios (id)
 );
