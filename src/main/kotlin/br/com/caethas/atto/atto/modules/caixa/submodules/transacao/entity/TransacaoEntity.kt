@@ -32,6 +32,6 @@ class TransacaoEntity(
     var documentoVinculado: String?,
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "caixa_transacoes_id", nullable = false)
+    @JoinColumn(name = "caixa_id", nullable = false)
     var caixa: CaixaEntity
 ) : BaseEntity()
