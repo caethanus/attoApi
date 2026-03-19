@@ -47,7 +47,7 @@ CREATE TABLE gestoes
     sincronizado_em     TIMESTAMP,
     data_inicio_gestao  TIMESTAMP NOT NULL,
     data_final_gestao   TIMESTAMP,
-    diretoria_gestao_id UUID,
+    diretoria_gestao_id UUID      NOT NULL,
 
     CONSTRAINT fk_gestao_diretoria
         FOREIGN KEY (diretoria_gestao_id) REFERENCES diretorias (id)
@@ -61,8 +61,9 @@ CREATE TABLE participacoes_gestao
     atualizado_em                 TIMESTAMP,
     deletado_em                   TIMESTAMP,
     sincronizado_em               TIMESTAMP,
-    participacao_gestao_membro_id UUID      UNIQUE,
+    participacao_gestao_membro_id UUID      NOT NULL UNIQUE,
     participacao_gestao_cargo_id  UUID      NOT NULL,
+    gestao_membros_gestao_id      UUID      NOT NULL,
     data_entrada                  TIMESTAMP NOT NULL,
     data_saida                    TIMESTAMP,
 
@@ -70,5 +71,7 @@ CREATE TABLE participacoes_gestao
         FOREIGN KEY (participacao_gestao_membro_id) REFERENCES membros (id),
     CONSTRAINT fk_participacao_cargo
         FOREIGN KEY (participacao_gestao_cargo_id) REFERENCES cargos (id),
+    CONSTRAINT fk_participacao_gestao
+        FOREIGN KEY (gestao_membros_gestao_id) REFERENCES gestoes (id)
 );
 
