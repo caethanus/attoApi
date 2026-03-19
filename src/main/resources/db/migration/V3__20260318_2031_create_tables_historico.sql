@@ -70,7 +70,5 @@ CREATE TABLE participacoes_gestao
         FOREIGN KEY (participacao_gestao_membro_id) REFERENCES membros (id),
     CONSTRAINT fk_participacao_cargo
         FOREIGN KEY (participacao_gestao_cargo_id) REFERENCES cargos (id),
-    CONSTRAINT fk_participacao_gestao
-        FOREIGN KEY (gestao_membros_gestao_id) REFERENCES gestoes (id)
 );
 
