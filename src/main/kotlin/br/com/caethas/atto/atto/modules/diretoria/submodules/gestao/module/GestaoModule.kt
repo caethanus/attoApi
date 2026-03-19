@@ -18,7 +18,6 @@ class GestaoModule {
     ): GestaoMapper {
         return GestaoMapper(
             participacaoGestaoRepository = participacaoGestaoRepository,
-            diretoriaRepository = diretoriaRepository
         )
     }
 
