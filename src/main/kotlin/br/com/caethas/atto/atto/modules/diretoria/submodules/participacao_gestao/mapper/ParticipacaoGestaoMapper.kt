@@ -16,7 +16,8 @@ class ParticipacaoGestaoMapper(
             membro = membroRepository.findById(request.membroId).orElseThrow(),
             cargo = cargoRepository.findById(request.cargoId).orElseThrow(),
             dataEntrada = request.dataEntrada,
-            dataSaida = request.dataSaida
+            dataSaida = request.dataSaida,
+            gestao = request.gestao
         )
     }
 

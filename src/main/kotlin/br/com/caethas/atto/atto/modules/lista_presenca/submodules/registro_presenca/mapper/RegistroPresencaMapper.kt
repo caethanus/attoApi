@@ -9,7 +9,8 @@ class RegistroPresencaMapper : BaseMapper<RegistroPresencaEntity, RegistroPresen
     override fun fromDto(request: RegistroPresencaFromDto): RegistroPresencaEntity {
         return RegistroPresencaEntity(
             membro = request.membro,
-            presente = request.presente
+            presente = request.presente,
+            listaPresenca = request.listaPresenca,
         )
     }
 

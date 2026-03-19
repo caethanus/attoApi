@@ -16,7 +16,7 @@ import jakarta.persistence.Table
 @Table(name = "membros")
 class MembroEntity(
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "membro_usuario_id", nullable = false)
+    @JoinColumn(name = "usuario_id", nullable = false)
     var usuario: UsuarioEntity,
 
     @Column(name = "nome_membro", nullable = false, updatable = true)

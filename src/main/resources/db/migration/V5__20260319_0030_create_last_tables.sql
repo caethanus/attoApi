@@ -36,20 +36,20 @@ CREATE TABLE caixas
 -- Tabela de Eventos
 CREATE TABLE eventos
 (
-    id                          UUID PRIMARY KEY,
-    criado_em                   TIMESTAMP NOT NULL,
-    atualizado_em               TIMESTAMP,
-    deletado_em                 TIMESTAMP,
-    sincronizado_em             TIMESTAMP,
-    titulo_evento               TEXT      NOT NULL,
-    descricao_evento            TEXT      NOT NULL,
-    data_hora_realizacao_evento TIMESTAMP NOT NULL,
-    data_hora_final_evento      TIMESTAMP NOT NULL,
-    local_evento                TEXT      NOT NULL,
-    quantidade_participantes    INTEGER,
-    status_evento               TEXT      NOT NULL,
+    id                           UUID PRIMARY KEY,
+    criado_em                    TIMESTAMP NOT NULL,
+    atualizado_em                TIMESTAMP,
+    deletado_em                  TIMESTAMP,
+    sincronizado_em              TIMESTAMP,
+    titulo_evento                TEXT      NOT NULL,
+    descricao_evento             TEXT      NOT NULL,
+    data_hora_realizacao_evento  TIMESTAMP NOT NULL,
+    data_hora_finalizacao_evento TIMESTAMP NOT NULL,
+    local_evento                 TEXT      NOT NULL,
+    quantidade_participantes     INTEGER,
+    status_evento                TEXT      NOT NULL,
 
-    CHECK (data_hora_final_evento > data_hora_realizacao_evento)
+    CHECK (data_hora_finalizacao_evento > data_hora_realizacao_evento)
 );
 
 -- Tabela de Transações

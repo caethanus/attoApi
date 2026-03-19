@@ -17,7 +17,7 @@ class ListaPresencaEntity(
     var dataListaPresenca: LocalDateTime,
 
     @OneToMany(
-        mappedBy = "listas_presenca",
+        mappedBy = "listaPresenca",
         fetch = FetchType.LAZY)
     var registrosPresenca: MutableList<RegistroPresencaEntity> = mutableListOf()
 

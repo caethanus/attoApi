@@ -18,7 +18,7 @@ class CaixaEntity(
     val saldoTotal: Double,
 
     @OneToMany(
-        mappedBy = "caixas",
+        mappedBy = "caixa",
         fetch = FetchType.LAZY
     )
     @Column(name = "transacoes", nullable = false, updatable = true)

@@ -1,5 +1,6 @@
 package br.com.caethas.atto.atto.modules.diretoria.submodules.gestao.dto
 
+import br.com.caethas.atto.atto.modules.diretoria.entity.DiretoriaEntity
 import br.com.caethas.atto.atto.modules.diretoria.submodules.participacao_gestao.entity.ParticipacaoGestaoEntity
 import br.com.caethas.atto.atto.shared.base.BaseDto
 import java.time.LocalDateTime
@@ -9,6 +10,7 @@ data class GestaoFromDto(
     val dataInicioGestao: LocalDateTime,
     val dataFinalGestao: LocalDateTime?,
     val membrosGestao: MutableList<ParticipacaoGestaoEntity>,
+    val diretoria: DiretoriaEntity
 ) : BaseDto.FromDto()
 
 data class GestaoToDto(

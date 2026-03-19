@@ -24,7 +24,7 @@ class DiretoriaEntity(
     var contatoDiretoria: String?,
 
     @OneToMany(
-        mappedBy = "diretorias",
+        mappedBy = "diretoria",
         fetch = FetchType.LAZY
     )
     @Column(name = "gestoes", nullable = false, updatable = true)

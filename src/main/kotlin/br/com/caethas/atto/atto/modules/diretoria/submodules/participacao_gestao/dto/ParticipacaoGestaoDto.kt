@@ -1,6 +1,8 @@
 package br.com.caethas.atto.atto.modules.diretoria.submodules.participacao_gestao.dto
 
 import br.com.caethas.atto.atto.modules.diretoria.submodules.cargo.entity.CargoEntity
+import br.com.caethas.atto.atto.modules.diretoria.submodules.gestao.entity.GestaoEntity
+import br.com.caethas.atto.atto.modules.lista_presenca.entity.ListaPresencaEntity
 import br.com.caethas.atto.atto.modules.membro.entity.MembroEntity
 import br.com.caethas.atto.atto.shared.base.BaseDto
 import org.springframework.cglib.core.Local
@@ -11,7 +13,9 @@ data class ParticipacaoGestaoFromDto(
     val membroId: UUID,
     val cargoId: UUID,
     val dataEntrada: LocalDateTime,
-    val dataSaida: LocalDateTime?
+    val dataSaida: LocalDateTime?,
+    val gestao: GestaoEntity,
+    val listaPresenca: ListaPresencaEntity
 ) : BaseDto.FromDto()
 
 data class ParticipacaoGestaoToDto(

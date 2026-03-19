@@ -11,10 +11,12 @@ class EventoMapper : BaseMapper<EventoEntity, EventoFromDto, EventoToDto>() {
             tituloEvento = request.tituloEvento,
             descricaoEvento = request.descricaoEvento,
             dataHoraRealizacaoEvento = request.dataHoraRealizacaoEvento,
-            dataHoraFinalEvento = request.dataHoraFinalEvento,
+            dataHoraFinalizacaoEvento = request.dataHoraFinalEvento,
             localEvento = request.localEvento,
             quantidadeParticipantes = request.quantidadeParticipantes,
-            statusEvento = request.statusEvento
+            statusEvento = request.statusEvento,
+            caixa = request.caixa,
+            listaPresenca = request.listaPresenca,
         )
     }
 
@@ -28,7 +30,7 @@ class EventoMapper : BaseMapper<EventoEntity, EventoFromDto, EventoToDto>() {
             tituloEvento = entity.tituloEvento,
             descricaoEvento = entity.descricaoEvento,
             dataHoraRealizacaoEvento = entity.dataHoraRealizacaoEvento,
-            dataHoraFinalEvento = entity.dataHoraFinalEvento,
+            dataHoraFinalEvento = entity.dataHoraFinalizacaoEvento,
             localEvento = entity.localEvento,
             quantidadeParticipantes = entity.quantidadeParticipantes,
             statusEvento = entity.statusEvento

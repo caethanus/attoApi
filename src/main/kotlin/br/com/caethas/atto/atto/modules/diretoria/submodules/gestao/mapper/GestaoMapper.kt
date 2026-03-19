@@ -17,6 +17,7 @@ class GestaoMapper(
             dataInicioGestao = request.dataInicioGestao,
             dataFinalGestao = request.dataFinalGestao,
             membrosGestao = request.membrosGestao,
+            diretoria = request.diretoria,
         )
     }
 
