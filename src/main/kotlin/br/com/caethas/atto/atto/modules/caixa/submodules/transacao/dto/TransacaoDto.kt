@@ -3,13 +3,14 @@ package br.com.caethas.atto.atto.modules.caixa.submodules.transacao.dto
 import br.com.caethas.atto.atto.modules.caixa.entity.CaixaEntity
 import br.com.caethas.atto.atto.modules.caixa.submodules.transacao.enums.TipoTransacao
 import br.com.caethas.atto.atto.shared.base.BaseDto
+import java.math.BigDecimal
 import java.time.LocalDateTime
 import java.util.UUID
 
 class TransacaoFromDto(
     val tituloTransacao: String,
     val descricaoTransacao: String,
-    val valorTransacao: Double,
+    val valorTransacao: BigDecimal,
     val tipoTransacao: TipoTransacao,
     val documentoVinculado: String?,
     val caixa: CaixaEntity
@@ -23,7 +24,7 @@ class TransacaoToDto(
     override val sincronizadoEm: LocalDateTime?,
     val tituloTransacao: String,
     val descricaoTransacao: String,
-    val valorTransacao: Double,
+    val valorTransacao: BigDecimal,
     val tipoTransacao: TipoTransacao,
     val documentoVinculado: String?
 ) : BaseDto.ToDto(

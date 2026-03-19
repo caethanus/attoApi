@@ -11,6 +11,7 @@ import jakarta.persistence.FetchType
 import jakarta.persistence.JoinColumn
 import jakarta.persistence.ManyToOne
 import jakarta.persistence.Table
+import java.math.BigDecimal
 
 @Entity
 @Table(name = "transacoes")
@@ -22,7 +23,7 @@ class TransacaoEntity(
     var descricaoTransacao: String,
 
     @Column(name = "valor_transacao", nullable = false, updatable = true)
-    var valorTransacao: Double,
+    var valorTransacao: BigDecimal,
 
     @Enumerated(EnumType.STRING)
     @Column(name = "tipo_transacao", nullable = false, updatable = false)

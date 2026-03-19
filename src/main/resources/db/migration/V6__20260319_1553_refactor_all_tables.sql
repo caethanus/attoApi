@@ -57,25 +57,6 @@ CREATE TABLE cargos
     descricao_cargo TEXT
 );
 
-CREATE TABLE participacoes_gestao
-(
-    id              UUID PRIMARY KEY,
-    criado_em       TIMESTAMP   NOT NULL,
-    atualizado_em   TIMESTAMP,
-    deletado_em     TIMESTAMP,
-    sincronizado_em TIMESTAMP,
-    data_entrada    TIMESTAMP   NOT NULL,
-    data_saida      TIMESTAMP,
-
-    cargo_id        UUID UNIQUE NOT NULL,
-
-    membro_id       UUID UNIQUE NOT NULL,
-
-    CONSTRAINT fk_participacoes_gestao_cargo
-        FOREIGN KEY (cargo_id) REFERENCES cargos (id),
-    CONSTRAINT fk_participacoes_gestao_membro
-        FOREIGN KEY (membro_id) REFERENCES membros (id)
-);
 
 CREATE TABLE diretorias
 (
@@ -100,10 +81,34 @@ CREATE TABLE gestoes
     data_inicio_gestao TIMESTAMP   NOT NULL,
     data_final_gestao  TIMESTAMP,
 
-    diretoria_id       UUID UNIQUE NOT NULL,
+    diretoria_id       UUID NOT NULL,
 
     CONSTRAINT fk_gestao_diretoria
         FOREIGN KEY (diretoria_id) REFERENCES diretorias (id)
+);
+
+CREATE TABLE participacoes_gestao
+(
+    id              UUID PRIMARY KEY,
+    criado_em       TIMESTAMP   NOT NULL,
+    atualizado_em   TIMESTAMP,
+    deletado_em     TIMESTAMP,
+    sincronizado_em TIMESTAMP,
+    data_entrada    TIMESTAMP   NOT NULL,
+    data_saida      TIMESTAMP,
+
+    cargo_id        UUID NOT NULL,
+
+    membro_id       UUID NOT NULL,
+
+    gestao_id UUID NOT NULL,
+
+    CONSTRAINT fk_participacao_gestao_gestao
+        FOREIGN KEY (gestao_id) REFERENCES gestoes(id),
+    CONSTRAINT fk_participacoes_gestao_cargo
+        FOREIGN KEY (cargo_id) REFERENCES cargos (id),
+    CONSTRAINT fk_participacoes_gestao_membro
+        FOREIGN KEY (membro_id) REFERENCES membros (id)
 );
 
 CREATE TABLE listas_presenca
@@ -125,7 +130,7 @@ CREATE TABLE registros_presenca
     sincronizado_em   TIMESTAMP,
     presente          BOOLEAN     NOT NULL,
 
-    membro_id         UUID UNIQUE NOT NULL,
+    membro_id         UUID NOT NULL,
 
     lista_presenca_id UUID        NOT NULL,
 
@@ -144,7 +149,7 @@ CREATE TABLE caixas
     atualizado_em   TIMESTAMP,
     deletado_em     TIMESTAMP,
     sincronizado_em TIMESTAMP,
-    saldo_total     DOUBLE PRECISION NOT NULL
+    saldo_total     DECIMAL NOT NULL
 );
 
 CREATE TABLE transacoes
@@ -156,7 +161,7 @@ CREATE TABLE transacoes
     sincronizado_em     TIMESTAMP,
     titulo_transacao    TEXT             NOT NULL,
     descricao_transacao TEXT             NOT NULL,
-    valor_transacao     DOUBLE PRECISION NOT NULL,
+    valor_transacao     DECIMAL NOT NULL,
     tipo_transacao      TEXT             NOT NULL,
     documento_vinculado TEXT,
 
@@ -178,7 +183,7 @@ CREATE TABLE eventos
     data_hora_realizacao_evento  TIMESTAMP NOT NULL,
     data_hora_finalizacao_evento TIMESTAMP,
     local_evento                 TEXT      NOT NULL,
-    quantidade_participantes     INTEGER   NOT NULL,
+    quantidade_participantes     INTEGER   ,
     status_evento                TEXT      NOT NULL,
 
     caixa_id                     UUID UNIQUE,
@@ -194,6 +199,12 @@ CREATE TABLE eventos
             REFERENCES listas_presenca (id)
 );
 
+CREATE INDEX idx_registro_lista ON registros_presenca(lista_presenca_id);
+CREATE INDEX idx_registro_membro ON registros_presenca(membro_id);
 
+CREATE INDEX idx_transacao_caixa ON transacoes(caixa_id);
+
+CREATE INDEX idx_evento_caixa ON eventos(caixa_id);
+CREATE INDEX idx_evento_lista ON eventos(lista_presenca_id);
 
 
