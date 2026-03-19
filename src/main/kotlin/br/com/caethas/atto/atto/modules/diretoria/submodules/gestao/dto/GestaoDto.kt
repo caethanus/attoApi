@@ -8,7 +8,6 @@ import java.util.UUID
 data class GestaoFromDto(
     val dataInicioGestao: LocalDateTime,
     val dataFinalGestao: LocalDateTime?,
-    val presidenteGestaoId: UUID,
     val membrosGestao: MutableList<ParticipacaoGestaoEntity>,
 ) : BaseDto.FromDto()
 

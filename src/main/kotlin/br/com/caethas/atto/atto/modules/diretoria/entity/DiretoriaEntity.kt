@@ -25,7 +25,7 @@ data class DiretoriaEntity(
     var contatoDiretoria: String?,
 
     @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "diretoria_gestao_id", nullable = false, updatable = true)
+    @JoinColumn(name = "diretoria_gestao_id", nullable = true, updatable = true)
     var gestoes: MutableList<GestaoEntity> = mutableListOf()
 
 ) : BaseEntity()
