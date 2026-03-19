@@ -16,10 +16,6 @@ data class RegistroPresencaEntity(
     @ManyToOne(fetch = FetchType.LAZY)
     var membro: MembroEntity,
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "lista_presenca_id")
-    var listaPresenca: ListaPresencaEntity,
-
     @Column(name = "presente")
     var presente: Boolean
 ) : BaseEntity()
