@@ -1,7 +1,6 @@
 package br.com.caethas.atto.atto.modules.lista_presenca.submodules.registro_presenca.service
 
-import br.com.caethas.atto.atto.modules.lista_presenca.submodules.registro_presenca.dto.RegistroPresencaFromDto
-import br.com.caethas.atto.atto.modules.lista_presenca.submodules.registro_presenca.dto.RegistroPresencaToDto
+import br.com.caethas.atto.atto.modules.lista_presenca.submodules.registro_presenca.dto.RegistroPresencaDto
 import br.com.caethas.atto.atto.modules.lista_presenca.submodules.registro_presenca.entity.RegistroPresencaEntity
 import br.com.caethas.atto.atto.modules.lista_presenca.submodules.registro_presenca.mapper.RegistroPresencaMapper
 import br.com.caethas.atto.atto.modules.lista_presenca.submodules.registro_presenca.repository.RegistroPresencaRepository
@@ -13,6 +12,6 @@ import org.springframework.stereotype.Service
 class RegistroPresencaService(
     repository: RegistroPresencaRepository,
     mapper: RegistroPresencaMapper
-) : BaseService<RegistroPresencaEntity, RegistroPresencaRepository, RegistroPresencaFromDto, RegistroPresencaToDto>(
+) : BaseService<RegistroPresencaEntity, RegistroPresencaRepository, RegistroPresencaDto>(
     repository, mapper,
 )

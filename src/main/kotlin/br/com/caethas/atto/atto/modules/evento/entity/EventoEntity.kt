@@ -24,10 +24,10 @@ class EventoEntity(
     var descricaoEvento: String,
 
     @Column(name = "data_hora_realizacao_evento", nullable = false, updatable = true)
-    val dataHoraRealizacaoEvento: LocalDateTime,
+    var dataHoraRealizacaoEvento: LocalDateTime,
 
     @Column(name = "data_hora_finalizacao_evento", nullable = false, updatable = true)
-    val dataHoraFinalizacaoEvento: LocalDateTime,
+    var dataHoraFinalizacaoEvento: LocalDateTime,
 
     @Column(name = "local_evento", nullable = false, updatable = true)
     var localEvento: String,

@@ -1,7 +1,6 @@
 package br.com.caethas.atto.atto.modules.membro.service
 
-import br.com.caethas.atto.atto.modules.membro.dto.MembroFromDto
-import br.com.caethas.atto.atto.modules.membro.dto.MembroToDto
+import br.com.caethas.atto.atto.modules.membro.dto.MembroDto
 import br.com.caethas.atto.atto.modules.membro.entity.MembroEntity
 import br.com.caethas.atto.atto.modules.membro.mapper.MembroMapper
 import br.com.caethas.atto.atto.modules.membro.repository.MembroRepository
@@ -10,4 +9,4 @@ import org.springframework.stereotype.Service
 
 @Service
 class MembroService(override val repository: MembroRepository, override val mapper: MembroMapper) :
-    BaseService<MembroEntity, MembroRepository, MembroFromDto, MembroToDto>(repository, mapper)
+    BaseService<MembroEntity, MembroRepository, MembroDto>(repository, mapper)
