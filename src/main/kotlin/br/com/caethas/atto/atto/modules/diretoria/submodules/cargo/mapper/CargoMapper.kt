@@ -1,29 +1,53 @@
 package br.com.caethas.atto.atto.modules.diretoria.submodules.cargo.mapper
 
-import br.com.caethas.atto.atto.modules.diretoria.submodules.cargo.dto.CargoFromDto
-import br.com.caethas.atto.atto.modules.diretoria.submodules.cargo.dto.CargoToDto
+import br.com.caethas.atto.atto.modules.diretoria.submodules.cargo.dto.CargoDto
 import br.com.caethas.atto.atto.modules.diretoria.submodules.cargo.entity.CargoEntity
-import br.com.caethas.atto.atto.modules.diretoria.submodules.cargo.repository.CargoRepository
+import br.com.caethas.atto.atto.shared.base.BaseDto
 import br.com.caethas.atto.atto.shared.base.BaseMapper
 
 
-class CargoMapper : BaseMapper<CargoEntity, CargoFromDto, CargoToDto>(){
-    override fun fromDto(request: CargoFromDto): CargoEntity {
+class CargoMapper : BaseMapper<CargoEntity, CargoDto>() {
+    override fun toEntity(d: CargoDto): CargoEntity {
         return CargoEntity(
-            tituloCargo = request.tituloCargo,
-            descricaoCargo = request.descricaoCargo
+            tituloCargo = d.tituloCargo,
+            descricaoCargo = d.descricaoCargo
+        ).apply {
+            id = d.baseDto.id
+            criadoEm = d.baseDto.criadoEm
+            atualizadoEm = d.baseDto.atualizadoEm
+            deletadoEm = d.baseDto.deletadoEm
+            sincronizadoEm = d.baseDto.sincronizadoEm
+        }
+    }
+
+    override fun toDto(e: CargoEntity): CargoDto {
+        return CargoDto(
+            baseDto = BaseDto(
+                id = e.id,
+                criadoEm = e.criadoEm,
+                atualizadoEm = e.atualizadoEm,
+                deletadoEm = e.deletadoEm,
+                sincronizadoEm = e.sincronizadoEm
+            ),
+            tituloCargo = e.tituloCargo,
+            descricaoCargo = e.descricaoCargo
         )
     }
 
-    override fun toDto(entity: CargoEntity): CargoToDto {
-        return CargoToDto(
-            id = entity.id,
-            criadoEm = entity.criadoEm,
-            atualizadoEm = entity.atualizadoEm,
-            deletadoEm = entity.deletadoEm,
-            sincronizadoEm = entity.sincronizadoEm,
-            tituloCargo = entity.tituloCargo,
-            descricaoCargo = entity.descricaoCargo,
-        )
+    override fun updateEntity(
+        e: CargoEntity,
+        d: CargoDto
+    ): CargoEntity {
+
+        e.criadoEm = d.baseDto.criadoEm
+        e.criadoEm = d.baseDto.criadoEm
+        e.deletadoEm = d.baseDto.deletadoEm
+        e.sincronizadoEm = d.baseDto.sincronizadoEm
+
+        e.tituloCargo = d.tituloCargo
+        e.descricaoCargo = d.descricaoCargo
+
+        return e
     }
+
 }

@@ -2,16 +2,12 @@ package br.com.caethas.atto.atto.modules.diretoria.submodules.participacao_gesta
 
 import br.com.caethas.atto.atto.modules.diretoria.submodules.cargo.repository.CargoRepository
 import br.com.caethas.atto.atto.modules.diretoria.submodules.participacao_gestao.dto.ParticipacaoGestaoDto
-import br.com.caethas.atto.atto.modules.diretoria.submodules.participacao_gestao.dto.ParticipacaoGestaoFromDto
-import br.com.caethas.atto.atto.modules.diretoria.submodules.participacao_gestao.dto.ParticipacaoGestaoToDto
 import br.com.caethas.atto.atto.modules.diretoria.submodules.participacao_gestao.entity.ParticipacaoGestaoEntity
 import br.com.caethas.atto.atto.modules.membro.repository.MembroRepository
 import br.com.caethas.atto.atto.shared.base.BaseDto
 import br.com.caethas.atto.atto.shared.base.BaseMapper
 
 class ParticipacaoGestaoMapper(
-    private val membroRepository: MembroRepository,
-    private val cargoRepository: CargoRepository
 ) : BaseMapper<ParticipacaoGestaoEntity, ParticipacaoGestaoDto>() {
     override fun toEntity(d: ParticipacaoGestaoDto): ParticipacaoGestaoEntity {
         return ParticipacaoGestaoEntity(
@@ -58,7 +54,8 @@ class ParticipacaoGestaoMapper(
 
         e.membro = d.membro
         e.cargo = d.cargo
-        e.
+        e.dataEntrada = d.dataEntrada
+        e.dataSaida = d.dataSaida
 
         return e
     }

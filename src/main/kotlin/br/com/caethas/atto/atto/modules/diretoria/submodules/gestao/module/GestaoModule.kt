@@ -13,11 +13,8 @@ class GestaoModule {
 
     @Bean
     fun gestaoMapper(
-        participacaoGestaoRepository: ParticipacaoGestaoRepository,
-        diretoriaRepository: DiretoriaRepository
     ): GestaoMapper {
         return GestaoMapper(
-            participacaoGestaoRepository = participacaoGestaoRepository,
         )
     }
 
