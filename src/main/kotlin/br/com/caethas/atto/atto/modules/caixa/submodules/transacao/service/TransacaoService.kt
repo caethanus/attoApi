@@ -1,8 +1,6 @@
 package br.com.caethas.atto.atto.modules.caixa.submodules.transacao.service
 
 import br.com.caethas.atto.atto.modules.caixa.submodules.transacao.dto.TransacaoDto
-import br.com.caethas.atto.atto.modules.caixa.submodules.transacao.dto.TransacaoFromDto
-import br.com.caethas.atto.atto.modules.caixa.submodules.transacao.dto.TransacaoToDto
 import br.com.caethas.atto.atto.modules.caixa.submodules.transacao.entity.TransacaoEntity
 import br.com.caethas.atto.atto.modules.caixa.submodules.transacao.mapper.TransacaoMapper
 import br.com.caethas.atto.atto.modules.caixa.submodules.transacao.repository.TransacaoRepository

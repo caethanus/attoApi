@@ -13,7 +13,7 @@ import java.math.BigDecimal
 @Table(name = "caixas")
 class CaixaEntity(
     @Column(name = "saldo_total", nullable = false, updatable = true)
-    val saldoTotal: BigDecimal,
+    var saldoTotal: BigDecimal,
 
     @OneToMany(
         mappedBy = "caixa",
