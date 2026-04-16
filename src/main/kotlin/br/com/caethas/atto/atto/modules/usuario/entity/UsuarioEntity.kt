@@ -10,7 +10,7 @@ import jakarta.persistence.Table
 
 @Entity
 @Table(name = "usuarios")
-data class UsuarioEntity(
+class UsuarioEntity(
     @Column(name = "login", nullable = false, updatable = true)
     var login: String,
 

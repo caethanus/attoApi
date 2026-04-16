@@ -1,12 +1,14 @@
 package br.com.caethas.atto.atto.shared.base
 
-abstract class BaseMapper<Entity, Request : BaseDto.FromDto, Response : BaseDto.ToDto> {
+abstract class BaseMapper<Entity, DTO> {
 
-    abstract fun fromDto(request: Request): Entity
+    abstract fun toEntity(d: DTO): Entity
 
-    abstract fun toDto(entity: Entity): Response
+    abstract fun toDto(e: Entity): DTO
 
-    fun toDtoList(entities: List<Entity>): List<Response> {
-        return entities.map { toDto(it) }
+    abstract fun updateEntity(e: Entity, d: DTO): Entity
+
+    fun toDtoList(es: List<Entity>): List<DTO> {
+        return es.map { toDto(it) }
     }
 }

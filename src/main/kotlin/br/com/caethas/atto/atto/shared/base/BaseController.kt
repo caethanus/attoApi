@@ -9,26 +9,26 @@ import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
 import java.util.UUID
 
-abstract class BaseController<T : BaseEntity, Req : BaseDto.FromDto, Res : BaseDto.ToDto>(
-    protected val service: BaseService<T, *, Req, Res>
+abstract class BaseController<T : BaseEntity, R : BaseRepository<T>, D>(
+    protected val service: BaseService<T, R, D>
 ) {
 
     @GetMapping
-    fun findAll(): ResponseEntity<List<Res>> =
+    fun findAll(): ResponseEntity<List<D>> =
         ResponseEntity.ok(service.findAll())
 
     @GetMapping("/{id}")
-    fun findById(@PathVariable id: UUID): ResponseEntity<Res> =
+    fun findById(@PathVariable id: UUID): ResponseEntity<D> =
         runCatching { service.findById(id) }
             .map { ResponseEntity.ok(it) }
             .getOrElse { ResponseEntity.notFound().build() }
 
     @PostMapping
-    fun save(@RequestBody request: Req): ResponseEntity<Res> =
+    fun save(@RequestBody request: D): ResponseEntity<D> =
         ResponseEntity.status(201).body(service.upsert(request))
 
     @PutMapping("/{id}")
-    fun update(@PathVariable id: UUID, @RequestBody request: Req): ResponseEntity<Res> =
+    fun update(@PathVariable id: UUID, @RequestBody request: D): ResponseEntity<D> =
         ResponseEntity.ok(service.upsert(request))
 
     @DeleteMapping("/{id}")

@@ -1,7 +1,6 @@
 package br.com.caethas.atto.atto.modules.diretoria.submodules.participacao_gestao.service
 
-import br.com.caethas.atto.atto.modules.diretoria.submodules.participacao_gestao.dto.ParticipacaoGestaoFromDto
-import br.com.caethas.atto.atto.modules.diretoria.submodules.participacao_gestao.dto.ParticipacaoGestaoToDto
+import br.com.caethas.atto.atto.modules.diretoria.submodules.participacao_gestao.dto.ParticipacaoGestaoDto
 import br.com.caethas.atto.atto.modules.diretoria.submodules.participacao_gestao.entity.ParticipacaoGestaoEntity
 import br.com.caethas.atto.atto.modules.diretoria.submodules.participacao_gestao.mapper.ParticipacaoGestaoMapper
 import br.com.caethas.atto.atto.modules.diretoria.submodules.participacao_gestao.repository.ParticipacaoGestaoRepository
@@ -13,6 +12,6 @@ class ParticipacaoGestaoService(
     repository: ParticipacaoGestaoRepository,
     mapper: ParticipacaoGestaoMapper
 ) :
-    BaseService<ParticipacaoGestaoEntity, ParticipacaoGestaoRepository, ParticipacaoGestaoFromDto, ParticipacaoGestaoToDto>(
+    BaseService<ParticipacaoGestaoEntity, ParticipacaoGestaoRepository, ParticipacaoGestaoDto>(
         repository, mapper
     )

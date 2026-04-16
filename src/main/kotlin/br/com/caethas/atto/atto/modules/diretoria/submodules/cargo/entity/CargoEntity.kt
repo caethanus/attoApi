@@ -7,7 +7,7 @@ import jakarta.persistence.Table
 
 @Entity
 @Table(name = "cargos")
-data class CargoEntity(
+class CargoEntity(
     @Column(name = "titulo_cargo", nullable = false, updatable = true)
     var tituloCargo: String,
 

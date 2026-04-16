@@ -13,13 +13,8 @@ class ParticipacaoGestaoModule {
 
     @Bean
     fun participacaoGestaoMapper(
-        membroRepository: MembroRepository,
-        cargoRepository: CargoRepository
     ): ParticipacaoGestaoMapper {
-        return ParticipacaoGestaoMapper(
-            membroRepository = membroRepository,
-            cargoRepository = cargoRepository
-        )
+        return ParticipacaoGestaoMapper()
     }
 
     @Bean

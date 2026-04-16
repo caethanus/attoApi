@@ -7,8 +7,8 @@ import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.FetchType
 import jakarta.persistence.JoinColumn
+import jakarta.persistence.ManyToOne
 import jakarta.persistence.OneToMany
-import jakarta.persistence.OneToOne
 import jakarta.persistence.Table
 import java.time.LocalDateTime
 
@@ -21,8 +21,12 @@ data class GestaoEntity(
     @Column(name = "data_final_gestao", nullable = true, updatable = true)
     var dataFinalGestao: LocalDateTime?,
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "gestao_membros_gestao_id", nullable = false, updatable = true)
-    var membrosGestao: MutableList<ParticipacaoGestaoEntity> = mutableListOf()
+    @OneToMany(mappedBy = "gestao", fetch = FetchType.LAZY)
+    @Column(name = "membros_gestao", nullable = false, updatable = true)
+    var membrosGestao: MutableList<ParticipacaoGestaoEntity> = mutableListOf(),
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "diretoria_id", nullable = false, updatable = true)
+    var diretoria: DiretoriaEntity
 
 ) : BaseEntity()

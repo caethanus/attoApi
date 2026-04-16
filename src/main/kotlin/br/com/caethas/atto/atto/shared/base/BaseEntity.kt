@@ -10,7 +10,6 @@ import java.util.UUID
 @MappedSuperclass
 abstract class BaseEntity(
     @Id
-    @UuidGenerator
     @Column(nullable = false, updatable = false)
     var id: UUID? = null,
 
