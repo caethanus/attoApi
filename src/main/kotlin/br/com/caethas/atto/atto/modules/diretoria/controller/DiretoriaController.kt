@@ -1,6 +1,5 @@
 package br.com.caethas.atto.atto.modules.diretoria.controller
 
-import br.com.caethas.atto.atto.modules.diretoria.dto.DiretoriaDto
 import br.com.caethas.atto.atto.modules.diretoria.entity.DiretoriaEntity
 import br.com.caethas.atto.atto.modules.diretoria.repository.DiretoriaRepository
 import br.com.caethas.atto.atto.modules.diretoria.service.DiretoriaService
@@ -13,6 +12,4 @@ import org.springframework.web.bind.annotation.RestController
 class DiretoriaController(
     service: DiretoriaService
 ) :
-    BaseController<DiretoriaEntity, DiretoriaRepository, DiretoriaDto>(
-        service
-    )
+    BaseController<DiretoriaEntity, DiretoriaRepository>(service)

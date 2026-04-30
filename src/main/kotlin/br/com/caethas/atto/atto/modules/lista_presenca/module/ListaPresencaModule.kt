@@ -1,6 +1,7 @@
 package br.com.caethas.atto.atto.modules.lista_presenca.module
 
-import br.com.caethas.atto.atto.modules.lista_presenca.mapper.ListaPresencaMapper
+import br.com.caethas.atto.atto.modules.lista_presenca.repository.ListaPresencaRepository
+import br.com.caethas.atto.atto.modules.lista_presenca.service.ListaPresencaService
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
@@ -8,7 +9,7 @@ import org.springframework.context.annotation.Configuration
 class ListaPresencaModule {
 
     @Bean
-    fun listaPresencaMapper() : ListaPresencaMapper {
-        return ListaPresencaMapper()
+    fun listaPresencaService(listaPresencaRepository: ListaPresencaRepository): ListaPresencaService {
+        return ListaPresencaService(listaPresencaRepository)
     }
 }

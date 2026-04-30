@@ -4,7 +4,6 @@ import br.com.caethas.atto.atto.modules.lista_presenca.submodules.registro_prese
 import br.com.caethas.atto.atto.modules.lista_presenca.submodules.registro_presenca.entity.RegistroPresencaEntity
 import br.com.caethas.atto.atto.modules.lista_presenca.submodules.registro_presenca.mapper.RegistroPresencaMapper
 import br.com.caethas.atto.atto.modules.lista_presenca.submodules.registro_presenca.repository.RegistroPresencaRepository
-import br.com.caethas.atto.atto.shared.base.BaseMapper
 import br.com.caethas.atto.atto.shared.base.BaseService
 import org.springframework.stereotype.Service
 

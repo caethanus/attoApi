@@ -1,6 +1,5 @@
 package br.com.caethas.atto.atto.modules.lista_presenca.controller
 
-import ListaPresencaDto
 import br.com.caethas.atto.atto.modules.lista_presenca.entity.ListaPresencaEntity
 import br.com.caethas.atto.atto.modules.lista_presenca.repository.ListaPresencaRepository
 import br.com.caethas.atto.atto.modules.lista_presenca.service.ListaPresencaService
@@ -12,4 +11,4 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping("listas_presencas")
 class ListaPresencaController(
     listaPresencaService: ListaPresencaService
-) : BaseController<ListaPresencaEntity, ListaPresencaRepository, ListaPresencaDto>(listaPresencaService)
+) : BaseController<ListaPresencaEntity, ListaPresencaRepository>(listaPresencaService)

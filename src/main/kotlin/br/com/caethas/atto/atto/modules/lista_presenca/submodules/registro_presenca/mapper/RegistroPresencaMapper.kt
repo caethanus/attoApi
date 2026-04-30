@@ -2,8 +2,6 @@ package br.com.caethas.atto.atto.modules.lista_presenca.submodules.registro_pres
 
 import br.com.caethas.atto.atto.modules.lista_presenca.submodules.registro_presenca.dto.RegistroPresencaDto
 import br.com.caethas.atto.atto.modules.lista_presenca.submodules.registro_presenca.entity.RegistroPresencaEntity
-import br.com.caethas.atto.atto.shared.base.BaseDto
-import br.com.caethas.atto.atto.shared.base.BaseMapper
 
 class RegistroPresencaMapper : BaseMapper<RegistroPresencaEntity, RegistroPresencaDto>() {
     override fun toEntity(d: RegistroPresencaDto): RegistroPresencaEntity {
