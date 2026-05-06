@@ -5,4 +5,6 @@ import br.com.caethas.atto.atto.shared.base.BaseRepository
 import org.springframework.stereotype.Repository
 
 @Repository
-interface UsuarioRepository : BaseRepository<UsuarioEntity>
+interface UsuarioRepository : BaseRepository<UsuarioEntity> {
+    fun findByLogin(login: String): UsuarioEntity?
+}
