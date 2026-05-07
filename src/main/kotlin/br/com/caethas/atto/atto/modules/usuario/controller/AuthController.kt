@@ -1,18 +1,18 @@
 package br.com.caethas.atto.atto.modules.usuario.controller
 
 import br.com.caethas.atto.atto.modules.usuario.entity.UsuarioEntity
+import br.com.caethas.atto.atto.modules.usuario.service.AuthenticationService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
-import java.util.UUID
 
 @RestController
 @RequestMapping("/auth")
 class AuthController(
-    private val authService: AuthService
+    private val authenticationService: AuthenticationService
 ) {
 
     /**
@@ -30,7 +30,7 @@ class AuthController(
                 return ResponseEntity.badRequest().build()
             }
 
-            val usuario = authService.login(login, senha)
+            val usuario = authenticationService.login(login, senha)
             ResponseEntity.ok(usuario)
         } catch (e: IllegalArgumentException) {
             ResponseEntity.status(HttpStatus.UNAUTHORIZED).build()
@@ -53,7 +53,7 @@ class AuthController(
                 return ResponseEntity.badRequest().build()
             }
 
-            val usuario = authService.refreshAccessToken(refreshToken)
+            val usuario = authenticationService.refreshToken(refreshToken)
             ResponseEntity.ok(usuario)
         } catch (e: IllegalArgumentException) {
             ResponseEntity.status(HttpStatus.UNAUTHORIZED).build()
@@ -69,10 +69,8 @@ class AuthController(
     @PostMapping("/logout")
     fun logout(@RequestBody request: Map<String, String>): ResponseEntity<Unit> {
         return try {
-            val usuarioIdStr = request["usuarioId"] ?: return ResponseEntity.badRequest().build()
-            val usuarioId = UUID.fromString(usuarioIdStr)
-            
-            authService.logout(usuarioId)
+            val usuarioId = request["usuarioId"] ?: return ResponseEntity.badRequest().build()
+            authenticationService.logout(usuarioId)
             ResponseEntity.noContent().build()
         } catch (e: Exception) {
             ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build()

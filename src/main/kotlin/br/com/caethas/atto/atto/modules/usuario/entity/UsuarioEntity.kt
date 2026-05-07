@@ -34,7 +34,9 @@ class UsuarioEntity(
     @Column(name = "ativo", nullable = false)
     var ativo: Boolean = true,
 
-    // Campos de autenticação temporários (não persistem no banco)
+    @Transient
+    var senha: String? = null,
+
     @Transient
     var accessToken: String? = null,
 
