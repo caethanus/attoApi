@@ -1,6 +1,5 @@
 package br.com.caethas.atto.atto.modules.diretoria.submodules.participacao_gestao.controller
 
-import br.com.caethas.atto.atto.modules.diretoria.submodules.participacao_gestao.dto.ParticipacaoGestaoDto
 import br.com.caethas.atto.atto.modules.diretoria.submodules.participacao_gestao.entity.ParticipacaoGestaoEntity
 import br.com.caethas.atto.atto.modules.diretoria.submodules.participacao_gestao.repository.ParticipacaoGestaoRepository
 import br.com.caethas.atto.atto.modules.diretoria.submodules.participacao_gestao.service.ParticipacaoGestaoService
@@ -11,6 +10,6 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/participacoes_gestao")
 class ParticipacaoGestaoController(service: ParticipacaoGestaoService) :
-    BaseController<ParticipacaoGestaoEntity, ParticipacaoGestaoRepository, ParticipacaoGestaoDto>(
+    BaseController<ParticipacaoGestaoEntity, ParticipacaoGestaoRepository>(
         service
     )

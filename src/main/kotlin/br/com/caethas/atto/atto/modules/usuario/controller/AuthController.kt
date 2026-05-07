@@ -1,7 +1,6 @@
 package br.com.caethas.atto.atto.modules.usuario.controller
 
 import br.com.caethas.atto.atto.modules.usuario.entity.UsuarioEntity
-import br.com.caethas.atto.atto.modules.usuario.service.AuthService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping
