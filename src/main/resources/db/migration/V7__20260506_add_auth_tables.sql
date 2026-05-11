@@ -3,12 +3,6 @@
 -- Timestamp: 20260506
 -- Description: add_auth_tables
 
--- Renomear coluna senha para senha_hash
-ALTER TABLE usuarios RENAME COLUMN senha TO senha_hash;
-
--- Adicionar campo ativo
-ALTER TABLE usuarios ADD COLUMN ativo BOOLEAN NOT NULL DEFAULT true;
-
 -- Criar tabela de refresh tokens
 CREATE TABLE refresh_tokens
 (
@@ -23,6 +17,10 @@ CREATE TABLE refresh_tokens
     revogado        BOOLEAN   NOT NULL DEFAULT false,
     CONSTRAINT fk_refresh_token_usuario FOREIGN KEY (usuario_id) REFERENCES usuarios (id)
 );
+
+INSERT INTO usuarios (id, criado_em, atualizado_em, deletado_em, sincronizado_em, login, senha, tipo_usuario)
+VALUES ('00000000-0000-0000-0000-000000000001', CURRENT_TIMESTAMP, NULL, NULL, NULL, 'admin',
+        '$2a$10$yUkLEVgaZs2qYNLVe6ydBe4WAgwxW4/Ii2ND/zSQY2PZ4QvHgvwdC', 'ADMIN');
 
 -- Índices para performance
 CREATE INDEX idx_refresh_tokens_token ON refresh_tokens (token);

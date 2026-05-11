@@ -19,9 +19,9 @@ class UsuarioEntity(
     @Column(name = "login", nullable = false, updatable = false, unique = true)
     var login: String,
 
-    @Column(name = "senha_hash", nullable = false, updatable = true)
+    @Column(name = "senha", nullable = false, updatable = true)
     @JsonIgnore // Nunca retorna a senha ao cliente
-    var senhaHash: String,
+    var senha: String,
 
     @Enumerated(EnumType.STRING)
     @Column(name = "tipo_usuario", nullable = false)
@@ -30,12 +30,6 @@ class UsuarioEntity(
     @OneToMany(mappedBy = "usuario", orphanRemoval = true)
     @JsonIgnore // Não serializa a lista de refresh tokens
     var refreshTokens: MutableList<RefreshTokenEntity> = mutableListOf(),
-
-    @Column(name = "ativo", nullable = false)
-    var ativo: Boolean = true,
-
-    @Transient
-    var senha: String? = null,
 
     @Transient
     var accessToken: String? = null,

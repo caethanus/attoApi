@@ -22,11 +22,11 @@ class AuthenticationService(
         val usuario = usuarioRepository.findByLogin(login)
             ?: throw IllegalArgumentException("Usuário ou senha inválidos")
 
-        if (!passwordEncoder.matches(senha, usuario.senhaHash)) {
+        if (!passwordEncoder.matches(senha, usuario.senha)) {
             throw IllegalArgumentException("Usuário ou senha inválidos")
         }
 
-        if (!usuario.ativo) {
+        if (usuario.deletadoEm != null) {
             throw IllegalArgumentException("Usuário inativo")
         }
 
@@ -64,7 +64,7 @@ class AuthenticationService(
         }
 
         val usuario = refreshToken.usuario
-        if (!usuario.ativo) {
+        if (usuario.deletadoEm != null) {
             throw IllegalArgumentException("Usuário inativo")
         }
 

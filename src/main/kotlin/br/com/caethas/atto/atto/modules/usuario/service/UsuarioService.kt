@@ -14,8 +14,8 @@ class UsuarioService(
 
     override fun upsert(entity: UsuarioEntity): UsuarioEntity {
         // Hash da senha se for novo ou se não for hash BCrypt
-        if (entity.id == null || !entity.senhaHash.startsWith("\$2a$")) {
-            entity.senhaHash = passwordEncoder.encode(entity.senhaHash)
+        if (entity.id == null || !entity.senha.startsWith("\$2a$")) {
+            entity.senha = passwordEncoder.encode(entity.senha)
         }
         return super.upsert(entity)
     }
