@@ -10,18 +10,15 @@ import java.util.UUID
 @MappedSuperclass
 abstract class BaseEntity(
     @Id
-    @Column(nullable = false, updatable = false)
+    @Column(name = "id", nullable = false, updatable = false)
     var id: UUID? = null,
 
-    @Column(name = "criado_em")
+    @Column(name = "criado_em", nullable = false, updatable = true)
     var criadoEm: LocalDateTime? = null,
 
-    @Column(name = "atualizado_em")
+    @Column(name = "atualizado_em", nullable = true, updatable = true)
     var atualizadoEm: LocalDateTime? = null,
 
-    @Column(name = "deletado_em")
+    @Column(name = "deletado_em", nullable = true, updatable = true)
     var deletadoEm: LocalDateTime? = null,
-
-    @Column(name = "sincronizado_em")
-    var sincronizadoEm: LocalDateTime? = null,
 )
