@@ -7,6 +7,7 @@
 -- Write your SQL below
 CREATE TABLE IF NOT EXISTS membros (
                                        id               UUID        NOT NULL,
+                                       membros_id       UUID        NOT NULL UNIQUE,
                                        criado_em        TIMESTAMP   NOT NULL,
                                        atualizado_em    TIMESTAMP,
                                        deletado_em      TIMESTAMP,
@@ -16,6 +17,7 @@ CREATE TABLE IF NOT EXISTS membros (
                                        endereco_membro  VARCHAR,
                                        status_associado INTEGER     NOT NULL,
 
-                                       CONSTRAINT pk_membros PRIMARY KEY (id)
+                                       CONSTRAINT pk_membros PRIMARY KEY (id),
+                                       CONSTRAINT uk_membros_membros_id UNIQUE (membros_id)
     );
 

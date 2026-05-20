@@ -12,7 +12,7 @@ import java.util.UUID
 abstract class BaseEntity(
     @Id
     @Column(name = "id", nullable = false, updatable = false)
-    var id: UUID? = null,
+    var id: UUID = UUID.randomUUID(),
 
     @Column(name = "criado_em", nullable = false, updatable = true)
     var criadoEm: LocalDateTime? = null,

@@ -8,11 +8,14 @@ abstract class BaseService<T : BaseEntity, R : BaseRepository<T>>(
 ) {
 
     open fun upsert(entity: T): T {
+        // Verifica se é novo registro: sem ID interno ou não existe no BD
         val isNewEntity = entity.id == null || !repository.existsById(entity.id!!)
 
         if (isNewEntity) {
+            // Novo registro: deixar o BD gerar o ID interno
             entity.criadoEm = LocalDateTime.now()
         } else {
+            // Atualização: apenas atualizar timestamp
             entity.atualizadoEm = LocalDateTime.now()
         }
 
