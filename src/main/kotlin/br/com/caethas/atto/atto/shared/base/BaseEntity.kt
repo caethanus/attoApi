@@ -1,9 +1,10 @@
 package br.com.caethas.atto.atto.shared.base
 
 import jakarta.persistence.Column
+import jakarta.persistence.GeneratedValue
+import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 import jakarta.persistence.MappedSuperclass
-import org.hibernate.annotations.UuidGenerator
 import java.time.LocalDateTime
 import java.util.UUID
 

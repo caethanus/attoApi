@@ -8,7 +8,9 @@ abstract class BaseService<T : BaseEntity, R : BaseRepository<T>>(
 ) {
 
     open fun upsert(entity: T): T {
-        if (entity.id == null) {
+        val isNewEntity = entity.id == null || !repository.existsById(entity.id!!)
+
+        if (isNewEntity) {
             entity.criadoEm = LocalDateTime.now()
         } else {
             entity.atualizadoEm = LocalDateTime.now()

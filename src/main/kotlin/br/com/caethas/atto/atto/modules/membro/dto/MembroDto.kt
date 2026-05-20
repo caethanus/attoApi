@@ -2,20 +2,21 @@ package br.com.caethas.atto.atto.modules.membro.dto
 
 import br.com.caethas.atto.atto.modules.membro.entity.MembroEntity
 import br.com.caethas.atto.atto.modules.membro.enums.StatusAssociado
+import br.com.caethas.atto.atto.shared.base.dto.BaseDto
 import com.fasterxml.jackson.annotation.JsonProperty
 import java.time.LocalDateTime
 import java.util.UUID
 
 data class MembroDto(
-    @JsonProperty("id_membros")
-    var id: UUID?,
+    @JsonProperty("membrosId")
+    override var id: UUID? = null,
 
     @JsonProperty("criadoEm")
-    var criadoEm: LocalDateTime?,
+    override var criadoEm: LocalDateTime? = null,
 
-    var atualizadoEm: LocalDateTime?,
+    override var atualizadoEm: LocalDateTime? = null,
 
-    var deletadoEm: LocalDateTime?,
+    override var deletadoEm: LocalDateTime? = null,
 
     var nomeMembro: String,
 
@@ -26,8 +27,8 @@ data class MembroDto(
     var enderecoMembro: String?,
 
     var statusAssociado: Int,
-) {
-    fun toEntity() = MembroEntity(
+) : BaseDto<MembroEntity>() {
+    override fun toEntity() = MembroEntity(
         nomeMembro = this.nomeMembro,
         emailMembro = this.emailMembro,
         contatoMembro = this.contatoMembro,
