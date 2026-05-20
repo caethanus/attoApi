@@ -11,9 +11,4 @@ interface MembroRepository : BaseRepository<MembroEntity> {
      * Busca membro pelo ID externo (membrosId) vindo do app
      */
     fun findByMembrosId(membrosId: UUID): Optional<MembroEntity>
-
-    /**
-     * Verifica se existe membro com o membrosId
-     */
-    fun existsByMembrosId(membrosId: UUID): Boolean
 }
