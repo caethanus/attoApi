@@ -7,11 +7,11 @@ openapi:
 drift:
   log_statements: true
 postgres:
-  host: 0.0.0.0
-  database: postgres
+  host: localhost
+  database: atto_db
   port: 5432
-  username: username
-  password: password
+  username: postgres
+  password: postgres
   ssl: disable
 server:
   port: 8080
