@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d4da5ed9-b0ec-44cf-a3da-35c4a910b595" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/lib/src/shared/dto/base_dto.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/src/shared/entity/base_entity.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/src/shared/repository/base_repository.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/src/shared/repository/base_repository_interface.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/src/shared/service/base_service.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/src/shared/service/base_service_interface.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacy-kotlin/local.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacy-kotlin/src/main/kotlin/br/com/caethas/atto/atto/AttoApplication.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacy-kotlin/src/main/kotlin/br/com/caethas/atto/atto/modules/usuario/controller/UsuarioController.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacy-kotlin/src/main/kotlin/br/com/caethas/atto/atto/modules/usuario/entity/UsuarioEntity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacy-kotlin/src/main/kotlin/br/com/caethas/atto/atto/modules/usuario/enums/TipoUsuario.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacy-kotlin/src/main/kotlin/br/com/caethas/atto/atto/modules/usuario/repository/UsuarioRepository.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacy-kotlin/src/main/kotlin/br/com/caethas/atto/atto/modules/usuario/service/UsuarioService.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacy-kotlin/src/main/kotlin/br/com/caethas/atto/atto/shared/base/BaseController.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacy-kotlin/src/main/kotlin/br/com/caethas/atto/atto/shared/base/BaseEntity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacy-kotlin/src/main/kotlin/br/com/caethas/atto/atto/shared/base/BaseRepository.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacy-kotlin/src/main/kotlin/br/com/caethas/atto/atto/shared/base/BaseService.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacy-kotlin/src/main/resources/application-dev.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacy-kotlin/src/main/resources/application-prod.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacy-kotlin/src/main/resources/application-test.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacy-kotlin/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacy-kotlin/src/main/resources/db/migration/V1__20260312_2105_create_test_usuario.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacy-kotlin/src/test/kotlin/br/com/caethas/atto/atto/AttoApplicationTests.kt" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="CopilotChats">
+    <option name="panelChat">
+      <chat>
+        <option name="activeSessionId" value="8fe612e2-56bf-4be9-a852-13db3c23fc13" />
+        <option name="sessions">
+          <session>
+            <option name="chatType" value="PANEL" />
+            <option name="id" value="22883069-915a-433c-be7d-48c85f84b4bc" />
+            <option name="modeId" value="Agent" />
+            <option name="modelType" value="builtin_family" />
+            <option name="modelValue" value="claude-haiku-4.5" />
+            <option name="status" value="Completed" />
+            <option name="targetType" value="LOCAL" />
+          </session>
+          <session>
+            <option name="chatType" value="PANEL" />
+            <option name="id" value="8fe612e2-56bf-4be9-a852-13db3c23fc13" />
+            <option name="modeId" value="Agent" />
+            <option name="modelType" value="builtin_family" />
+            <option name="modelValue" value="claude-haiku-4.5" />
+            <option name="targetType" value="LOCAL" />
+          </session>
+        </option>
+        <option name="type" value="PANEL" />
+      </chat>
+    </option>
+  </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_C:/Users/macha/projects/atto/attoApi" value="3D3UAL0OKiLBBR8crCVOajFLyFm" />
+    </persistenceIdMap>
+  </component>
+  <component name="CopilotUserSelectedChatMode">
+    <option name="chatModeId" value="Ask" />
+  </component>
+  <component name="CopilotUserSelectedModel">
+    <selectedModels>
+      <entry key="agent-panel" value="Claude Haiku 4.5" />
+      <entry key="chat-panel" value="Claude Haiku 4.5" />
+    </selectedModels>
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="atto" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin Enum" />
+        <option value="Kotlin Interface" />
+        <option value="Kotlin Class" />
+        <option value="Dart File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3D3UAL0OKiLBBR8crCVOajFLyFm" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectSessionTemplates">
+    <option name="panelTemplate">
+      <template>
+        <option name="modeId" value="Agent" />
+        <option name="model">
+          <model>
+            <option name="modelType" value="builtin_family" />
+            <option name="modelValue" value="claude-haiku-4.5" />
+          </model>
+        </option>
+        <option name="targetType" value="LOCAL" />
+      </template>
+    </option>
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Build attoApi.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "Spring Boot.application.executor": "Run",
+    "Spring Boot.dev.executor": "Run",
+    "Spring Boot.main.executor": "Run",
+    "Spring Boot.test.executor": "Run",
+    "android.gradle.sync.needed": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "refatorando__api__vaden",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/macha/projects/atto/attoApi",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "dart.settings",
+    "show.migrate.to.gradle.popup": "false",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\macha\projects\atto\attoApi\lib\src\shared\entity" />
+      <recent name="C:\Users\macha\projects\atto\attoApi\legacy-kotlin" />
+      <recent name="C:\Users\macha\projects\atto\attoApi\src\main\resources\db" />
+    </key>
+    <key name="K2MoveDeclarationsDialog.RECENT_PACKAGE_KEY">
+      <recent name="br.com.caethas.atto.atto.modules.sincronizacao.controller" />
+    </key>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d4da5ed9-b0ec-44cf-a3da-35c4a910b595" name="Changes" comment="" />
+      <created>1777510102323</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1777510102323</updated>
+      <workItem from="1777510222273" duration="816000" />
+      <workItem from="1777511073631" duration="719000" />
+      <workItem from="1777511834907" duration="19030000" />
+      <workItem from="1778190598933" duration="3976000" />
+      <workItem from="1778540750784" duration="14844000" />
+      <workItem from="1779148845067" duration="17134000" />
+      <workItem from="1779315708859" duration="2620000" />
+      <workItem from="1779318668869" duration="374000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+      <option value=".github/prompts" />
+    </promptFileLocations>
+  </component>
+</project>
