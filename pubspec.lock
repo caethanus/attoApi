@@ -41,15 +41,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
-  auto_mapper:
-    dependency: "direct main"
-    description:
-      path: "."
-      ref: "1.0.11"
-      resolved-ref: "18fc7b77eb11760cf84d235af1bf1b67ef9c4292"
-      url: "https://github.com/Luciano-Magnus/auto_mapper.git"
-    source: git
-    version: "1.0.11"
   buffer:
     dependency: transitive
     description:

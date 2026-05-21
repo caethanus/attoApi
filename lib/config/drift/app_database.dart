@@ -1,3 +1,4 @@
+import 'package:atto_api/src/modules/membro/database/table/membro_table.dart';
 import 'package:drift/drift.dart';
 
 part 'app_database.g.dart';
@@ -10,7 +11,7 @@ part 'app_database.g.dart';
 //   DateTimeColumn get createdAt => dateTime().withDefault(currentDateAndTime)();
 // }
 
-@DriftDatabase(tables: [])
+@DriftDatabase(tables: [MembroTable])
 class AppDatabase extends _$AppDatabase {
   AppDatabase(super.e, {bool logStatements = false});
 

@@ -9,13 +9,24 @@ import 'base_repository_interface.dart';
 abstract class BaseRepository<E extends BaseEntity, D extends DataClass, C extends UpdateCompanion<D>>
     implements IBaseRepository<E> {
 
-  final DatabaseAccessor db;
+  final GeneratedDatabase db;
   abstract final TableInfo<Table, D> table;
 
   BaseRepository(this.db);
 
   E fromRow(D row);       // Drift row → sua entidade
   C toCompanion(E entity); // sua entidade → Drift companion
+
+  @override
+  Future<E> saveOrUpdate(E entity) async {
+    final exists = await getById(entity.id);
+    if (exists == null) {
+      await save(entity);
+    } else {
+      await update(entity);
+    }
+    return entity;
+  }
 
   @override
   Future<void> save(E entity) async {
