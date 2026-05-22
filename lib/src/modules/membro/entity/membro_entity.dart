@@ -1,6 +1,9 @@
+import 'package:atto_api/src/modules/membro/dto/membro_dto.dart';
 import 'package:atto_api/src/modules/membro/enums/status_associado.dart';
 import 'package:atto_api/src/shared/entity/base_entity.dart';
+import 'package:auto_mapper/auto_mapper_annotation.dart';
 
+@AutoMap(target: MembroDto)
 class MembroEntity extends BaseEntity {
   final String nomeMembro;
   final String? emailMembro;
