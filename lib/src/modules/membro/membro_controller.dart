@@ -7,11 +7,16 @@ import 'package:vaden/vaden.dart';
 @Api(tag: 'Membro', description: 'Gerenciamento de membros e requisições relacionadas a membros.')
 @Controller('/membros')
 class MembroController extends BaseController<MembroDto, MembroEntity, IMembroService> {
-
   MembroController(IMembroService service) : super(service);
 
+  @ApiResponse(
+    200,
+    description: 'Sucesss',
+  )
   @Get('/')
-  Future<Response> getAll() => super.getAll();
+  Future<List<MembroDto>> getAll() async {
+    return await super.getAll();
+  }
 
   @Get('/<id>')
   Future<Response> getById(@Param() String id) => super.getById(id);

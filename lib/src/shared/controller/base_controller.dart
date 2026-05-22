@@ -9,12 +9,12 @@ abstract class BaseController<D extends BaseDto, E extends BaseEntity, S extends
 
   BaseController(this._service);
 
-  Future<Response> getAll() async {
+  Future<List<D>> getAll() async {
     try {
       final entities = await _service.getAll();
-      return Response.ok(dtoListFromEntityList(entities));
+      return dtoListFromEntityList(entities);
     } catch (e) {
-      return Response.internalServerError(body: {'error': e.toString()});
+      throw Exception(e.toString());
     }
   }
 
