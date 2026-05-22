@@ -41,7 +41,7 @@ class MembroRepository extends BaseRepository<MembroEntity, MembroTableData, Mem
     statusAssociado:    Value(e.statusAssociado.value),
     quantidadePresenca: Value(e.quantidadePresenca),
     criadoEm:           Value(e.criadoEm!),
-    atualizadoEm:       Value(e.atualizadoEm!),
+    atualizadoEm:       Value(e.atualizadoEm),
     deletadoEm:         Value(e.deletadoEm),
   );
 }

@@ -1,6 +1,9 @@
+import 'package:atto_api/auto_mapper.dart';
 import 'package:atto_api/vaden_application.dart';
 
 Future<void> main(List<String> args) async {
+  GeneratedMappings.register();
+
   final vaden = VadenApp();
   await vaden.setup();
   final server = await vaden.run(args);
