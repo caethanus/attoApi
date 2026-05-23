@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:atto_api/src/shared/dto/base_dto.dart';
 import 'package:atto_api/src/shared/entity/base_entity.dart';
+import 'package:atto_api/src/shared/helpers/api/api_response_helper.dart';
 import 'package:atto_api/src/shared/service/base_service_interface.dart';
 import 'package:auto_mapper/auto_mapper.dart';
 import 'package:vaden/vaden.dart';
@@ -9,60 +12,58 @@ abstract class BaseController<D extends BaseDto, E extends BaseEntity, S extends
 
   BaseController(this._service);
 
-  Future<List<D>> getAll() async {
+  Future<Response> getAll() async {
     try {
       final entities = await _service.getAll();
-      return dtoListFromEntityList(entities);
+      final dtos = dtoListFromEntityList(entities);
+      return ApiResponseHelper.okList(dtos.map((dto) => jsonEncode(dto)).toList());
     } catch (e) {
-      throw Exception(e.toString());
+      return ApiResponseHelper.fromException(e.toString());
     }
   }
 
   Future<Response> getById(String id) async {
     try {
       final entity = await _service.getById(id);
-      if (entity == null) {
-        return Response(404, body: {'error': 'Not found'});
-      }
-      return Response.ok(dtoFromEntity(entity));
+      return ApiResponseHelper.ok(dtoFromEntity(entity!));
     } catch (e) {
-      return Response.internalServerError(body: {'error': e.toString()});
+      return ApiResponseHelper.fromException(e.toString());
     }
   }
 
   Future<Response> save(E entity) async {
     try {
       await _service.save(entity);
-      return Response.ok({'message': 'Created successfully'});
+      return ApiResponseHelper.created(dtoFromEntity(entity));
     } catch (e) {
-      return Response.internalServerError(body: {'error': e.toString()});
+      return ApiResponseHelper.fromException(e.toString());
     }
   }
 
   Future<Response> update(String id, E entity) async {
     try {
       await _service.update(entity);
-      return Response.ok({'message': 'Updated successfully'});
+      return ApiResponseHelper.ok(dtoFromEntity(entity));
     } catch (e) {
-      return Response.internalServerError(body: {'error': e.toString()});
+      return ApiResponseHelper.fromException(e.toString());
     }
   }
 
   Future<Response> delete(E entity) async {
     try {
       await _service.delete(entity);
-      return Response.ok({'message': 'Deleted successfully'});
+      return ApiResponseHelper.noContent();
     } catch (e) {
-      return Response.internalServerError(body: {'error': e.toString()});
+      return ApiResponseHelper.fromException(e.toString());
     }
   }
 
   Future<Response> saveOrUpdate(D dto) async {
     try {
       final saved = await _service.saveOrUpdate(entityFromDto(dto));
-      return Response.ok(dtoFromEntity(saved));
+      return ApiResponseHelper.ok(dtoFromEntity(saved));
     } catch (e) {
-      return Response.internalServerError(body: {'error': e.toString()});
+      return ApiResponseHelper.fromException(e.toString());
     }
   }
 }

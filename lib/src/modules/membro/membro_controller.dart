@@ -9,21 +9,18 @@ import 'package:vaden/vaden.dart';
 class MembroController extends BaseController<MembroDto, MembroEntity, IMembroService> {
   MembroController(IMembroService service) : super(service);
 
-  @ApiResponse(
-    200,
-    description: 'Sucesss',
-  )
-  @Get('/')
-  Future<List<MembroDto>> getAll() async {
-    return await super.getAll();
+  @Get()
+  Future<Response> getAll() async {
+    return super.getAll();
   }
 
   @Get('/<id>')
-  Future<Response> getById(@Param() String id) => super.getById(id);
+  Future<Response> getById(@Param() String id) async {
+    return super.getById(id);
+  }
 
-  @Post('/')
-  Future<Response> create(@Body() MembroDto membro) async {
-    final entity = entityFromDto(membro);
-    return await super.save(entity);
+  @Post()
+  Future<Response> saveOrUpdate(@Body() MembroDto dto) async {
+    return super.saveOrUpdate(dto);
   }
 }
